@@ -1,0 +1,155 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PUTLOCKER - Responsive</title>
+
+<!-- LINK VIDEO & GAMBAR DI ATAS - GAMPANG GANTI -->
+<script>
+  var VIDEO_LINK = "https://cdn.videy.co/6PB8Ngyb1.mp4";
+  var IMAGE_LINK = "https://cdn.aceimg.com/ofAHh4LNU.jpg";
+</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#050505;color:#fff;font-family:Inter,Arial,sans-serif;overflow-x:hidden}
+
+/* HEADER */
+.topbar{
+  background: linear-gradient(to bottom, #4a4a4a, #1e1e1e);
+  padding: 12px 3%;
+  display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:9999;
+  border-bottom:1px solid rgba(255,255,255,0.1)
+}
+.left{display:flex;align-items:center;gap:40px}
+.logo-put{display:flex;align-items:center;gap:8px;text-decoration:none}
+.logo-put .put,.logo-put .locker{color:#fff;font-size:28px;font-weight:900;letter-spacing:1px}
+.logo-play{width:40px;height:40px;background:#8bc34a;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.play-white{width:0;height:0;border-left:14px solid #fff;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:3px}
+.menu-put{display:flex;gap:22px}
+.menu-put a{color:#ddd;text-decoration:none;font-size:14px;font-weight:500}
+.menu-put a:hover{color:#8bc34a}
+.search-put{position:relative}
+.search-put input{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:25px;padding:10px 18px 10px 42px;color:#fff;width:280px;font-size:14px;outline:none}
+.search-put .icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#999}
+
+/* VIDEO */
+.video-box{position:relative;width:100%;background:#000;max-width:100%;margin:0 auto}
+video{width:100%;display:block;object-fit:contain;background:#000}
+#centerPlay{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:70px;height:70px;border:0;border-radius:50%;background:#ff2f6d;cursor:pointer;z-index:10;box-shadow:0 8px 25px rgba(255,0,102,0.5)}
+#centerPlay::before{content:"";position:absolute;top:50%;left:50%;transform:translate(-35%,-50%);width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-left:18px solid #fff}
+#centerPlay.hidden{opacity:0;pointer-events:none}
+
+/* BANNER - JARAK DIJAUHIN */
+.banner{position:absolute;left:50%;width:100%;max-width:100%;text-align:center;z-index:6;transform:translateX(-50%);pointer-events:auto}
+.banner-atas{top:15px !important} /* NAIK KE ATAS */
+.banner-bawah{bottom:15px !important} /* TURUN KE BAWAH */
+
+.page{width:100%;max-width:500px;margin:0 auto;padding-bottom:30px}
+.video-info{padding:18px;background:#111}
+.actions{display:flex;gap:10px;margin-top:18px}
+.btn{flex:1;border-radius:12px;padding:13px;font-size:14px;font-weight:700;text-decoration:none;text-align:center;display:block}
+.btn-primary{background:linear-gradient(135deg,#ff2f6d,#ff0066);color:#fff}
+.btn-secondary{background:#1e1e1e;color:#fff}
+
+/* ================= RESPONSIVE ================= */
+/* TABLET */
+@media(max-width:1024px){
+  .menu-put{gap:16px}
+  .menu-put a{font-size:13px}
+  .search-put input{width:200px}
+  .left{gap:20px}
+}
+
+/* HP LANDSCAPE & POTRAIT */
+@media(max-width:768px){
+  .topbar{flex-wrap:wrap;gap:10px;padding:10px 3%}
+  .left{width:100%;justify-content:space-between;gap:15px}
+  .logo-put .put,.logo-put .locker{font-size:22px}
+  .logo-play{width:32px;height:32px}
+  .play-white{border-left:11px solid #fff;border-top:6px solid transparent;border-bottom:6px solid transparent}
+  .menu-put{width:100%;overflow-x:auto;white-space:nowrap;padding-bottom:5px;gap:18px;scrollbar-width:none}
+  .menu-put::-webkit-scrollbar{display:none}
+  .menu-put a{font-size:13px;flex-shrink:0}
+  .search-put{width:100%}
+  .search-put input{width:100%}
+  
+  .video-box{max-width:100%}
+  video{max-height:60vh}
+  .banner-atas{top:8px !important}
+  .banner-bawah{bottom:8px !important}
+  #centerPlay{width:60px;height:60px}
+  #centerPlay::before{border-top:10px solid transparent;border-bottom:10px solid transparent;border-left:15px solid #fff}
+  
+  .page{max-width:100%;padding:0 0 20px}
+  .video-info{padding:14px}
+}
+
+/* HP KECIL */
+@media(max-width:480px){
+  .topbar{padding:8px 4%}
+  video{max-height:55vh}
+  .banner-atas{top:5px !important}
+  .banner-bawah{bottom:5px !important}
+}
+
+/* PC BESAR - VIDEO DI TENGAH TAPI FULL WIDTH HEADER */
+@media(min-width:769px){
+  video{max-height:78vh;max-width:900px;margin:0 auto}
+  .video-box{background:#000;display:flex;justify-content:center}
+  .page{max-width:550px}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="left">
+    <a class="logo-put" href="https://vednewsgoodd.blogspot.com/"><span class="put">PUT</span><div class="logo-play"><div class="play-white"></div></div><span class="locker">LOCKER</span></a>
+    <div class="menu-put">
+      <a href="https://vednewsgoodd.blogspot.com/">Home</a>
+      <a href="https://vednewsgoodd.blogspot.com/">Movies</a>
+      <a href="https://vednewsgoodd.blogspot.com/">TV Shows</a>
+      <a href="https://vednewsgoodd.blogspot.com/">Top IMDB</a>
+      <a href="https://vednewsgoodd.blogspot.com/">Android App</a>
+    </div>
+  </div>
+  <div class="search-put"><span class="icon">⌕</span><input type="text" placeholder="Enter keywords..."/></div>
+</div>
+
+<div class="video-box">
+  <video id="player" controls autoplay playsinline poster="">
+    <source id="videoSource" src="" type="video/mp4"/>
+  </video>
+  <button id="centerPlay"></button>
+  <div class="banner banner-atas"><script>atOptions={key:'588e4334052d78dad210ddc8e0c88760',format:'js',params:{}};document.write('<scr'+'ipt src="https://degreetemptbummer.com/588e4334052d78dad210ddc8e0c88760/invoke.js"></scr'+'ipt>');</script></div>
+  <div class="banner banner-bawah"><script>atOptions={key:'588e4334052d78dad210ddc8e0c88760',format:'js',params:{}};document.write('<scr'+'ipt src="https://degreetemptbummer.com/588e4334052d78dad210ddc8e0c88760/invoke.js"></scr'+'ipt>');</script></div>
+</div>
+
+<div class="page">
+  <div class="video-info">
+    <div style="font-size:18px;font-weight:700">Hot Trending Video Tonight 😍</div>
+    <div style="margin-top:8px;color:#aaa;font-size:13px">Watch the latest viral content people are talking about right now.</div>
+    <div style="display:flex;gap:14px;margin-top:12px;color:#ccc;font-size:12px"><div>👁 2.4M Views</div><div>❤ 183K Likes</div><div>🔥 Trending</div></div>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://bookchose.com/ud620wgvv3?key=4adc86a8ea6777dca2e5a0765c46f2e9" target="_blank">▶ Watch More</a>
+      <a class="btn btn-secondary" href="https://bookchose.com/ud620wgvv3?key=4adc86a8ea6777dca2e5a0765c46f2e9" target="_blank">⬇ Download</a>
+    </div>
+  </div>
+</div>
+
+<script>
+document.getElementById("player").poster = IMAGE_LINK;
+document.getElementById("videoSource").src = VIDEO_LINK;
+document.getElementById("player").load();
+const player=document.getElementById("player");
+const centerPlay=document.getElementById("centerPlay");
+centerPlay.addEventListener("click",()=>{player.paused?player.play():player.pause()});
+player.addEventListener("play",()=>centerPlay.classList.add("hidden"));
+player.addEventListener("pause",()=>centerPlay.classList.remove("hidden"));
+player.addEventListener("ended",()=>centerPlay.classList.remove("hidden"));
+</script>
+</body>
+</html>
