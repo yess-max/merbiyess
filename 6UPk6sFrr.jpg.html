@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PUTLOCKER</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#050505;color:#fff;font-family:Inter,Arial,sans-serif}
+.topbar{
+  background: linear-gradient(to bottom, rgba(70,70,70,0.98), rgba(25,25,25,0.98));
+  padding: 12px 3%;display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:9999;border-bottom:1px solid rgba(255,255,255,0.08)
+}
+.left{display:flex;align-items:center;gap:45px}
+.logo-put{display:flex;align-items:center;gap:8px;text-decoration:none}
+.logo-put .put,.logo-put .locker{color:#fff;font-size:30px;font-weight:900}
+.logo-play{width:42px;height:42px;background:#8bc34a;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.play-white{width:0;height:0;border-left:15px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:3px}
+.menu-put{display:flex;gap:26px}
+.menu-put a{color:#ddd;text-decoration:none;font-size:15px;font-weight:500}
+.menu-put a:hover{color:#8bc34a}
+.search-put{position:relative}
+.search-put input{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:25px;padding:11px 20px 11px 44px;color:#fff;width:320px;font-size:14px;outline:none}
+.search-put .icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:#999}
+.video-box{position:relative;width:100%;background:#000}
+video{width:100%;max-height:82vh;display:block;object-fit:contain;background:#000}
+#centerPlay{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:75px;height:75px;border:0;border-radius:50%;background:#ff2f6d;cursor:pointer;z-index:10;box-shadow:0 8px 30px rgba(255,0,102,0.5)}
+#centerPlay::before{content:"";position:absolute;top:50%;left:50%;transform:translate(-35%,-50%);width:0;height:0;border-top:13px solid transparent;border-bottom:13px solid transparent;border-left:20px solid #fff}
+#centerPlay.hidden{opacity:0;pointer-events:none}
+.banner{position:absolute;left:50%;width:100%;text-align:center;z-index:5;transform:translateX(-50%)}
+.banner-atas{top:60px}.banner-bawah{bottom:90px}
+.page{width:100%;max-width:500px;margin:0 auto;padding-bottom:40px}
+.video-info{padding:18px;background:#111}
+.actions{display:flex;gap:10px;margin-top:18px}
+.btn{flex:1;border-radius:14px;padding:14px;font-size:14px;font-weight:700;text-decoration:none;text-align:center;display:block}
+.btn-primary{background:linear-gradient(135deg,#ff2f6d,#ff0066);color:#fff}
+.btn-secondary{background:#1e1e1e;color:#fff}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="left">
+    <a class="logo-put" href="https://vednewsgoodd.blogspot.com/">
+      <span class="put">PUT</span><div class="logo-play"><div class="play-white"></div></div><span class="locker">LOCKER</span>
+    </a>
+    <div class="menu-put">
+      <a href="https://vednewsgoodd.blogspot.com/">Home</a>
+      <a href="https://vednewsgoodd.blogspot.com/">Movies</a>
+      <a href="https://vednewsgoodd.blogspot.com/">TV Shows</a>
+      <a href="https://vednewsgoodd.blogspot.com/">Top IMDB</a>
+      <a href="https://vednewsgoodd.blogspot.com/">Android App</a>
+    </div>
+  </div>
+  <div class="search-put"><span class="icon">⌕</span><input type="text" placeholder="Enter keywords..."/></div>
+</div>
+
+<div class="video-box">
+  <video id="player" controls autoplay playsinline poster="https://cdn.aceimg.com/ofAHh4LNU.jpg">
+    <source src="https://cdn.videy.co/6PB8Ngyb1.mp4" type="video/mp4"/>
+  </video>
+  <button id="centerPlay"></button>
+  <div class="banner banner-atas"><script>atOptions={key:'588e4334052d78dad210ddc8e0c88760',format:'js',params:{}};document.write('<scr'+'ipt src="https://degreetemptbummer.com/588e4334052d78dad210ddc8e0c88760/invoke.js"></scr'+'ipt>');</script></div>
+  <div class="banner banner-bawah"><script>atOptions={key:'588e4334052d78dad210ddc8e0c88760',format:'js',params:{}};document.write('<scr'+'ipt src="https://degreetemptbummer.com/588e4334052d78dad210ddc8e0c88760/invoke.js"></scr'+'ipt>');</script></div>
+</div>
+
+<div class="page">
+  <div class="video-info">
+    <div style="font-size:19px;font-weight:700">Hot Trending Video Tonight 😍</div>
+    <div style="margin-top:8px;color:#aaa;font-size:14px">Watch the latest viral content people are talking about right now.</div>
+    <div style="display:flex;gap:14px;margin-top:14px;color:#ccc;font-size:13px"><div>👁️ 2.4M Views</div><div>❤️ 183K Likes</div><div>🔥 Trending</div></div>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://bookchose.com/ud620wgvv3?key=4adc86a8ea6777dca2e5a0765c46f2e9" target="_blank">▶ Watch More</a>
+      <a class="btn btn-secondary" href="https://bookchose.com/ud620wgvv3?key=4adc86a8ea6777dca2e5a0765c46f2e9" target="_blank">⬇ Download</a>
+    </div>
+  </div>
+</div>
+
+<script>
+const player=document.getElementById("player");
+const centerPlay=document.getElementById("centerPlay");
+centerPlay.addEventListener("click",()=>{player.paused?player.play():player.pause()});
+player.addEventListener("play",()=>centerPlay.classList.add("hidden"));
+player.addEventListener("pause",()=>centerPlay.classList.remove("hidden"));
+player.addEventListener("ended",()=>centerPlay.classList.remove("hidden"));
+</script>
+</body>
+</html>
