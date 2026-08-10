@@ -1,0 +1,620 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Video Player</title>
+
+  <style>
+    /* =====================================================
+       RESET
+       ===================================================== */
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100%;
+      background: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+
+
+    /* =====================================================
+       PENGATURAN MUDAH
+       ===================================================== */
+
+    :root {
+
+      /* Posisi banner dari atas */
+      --banner-top: 10px;
+
+      /* Jarak banner ke video */
+      --banner-video-gap: 15px;
+
+      /* Lebar maksimal video di laptop */
+      --max-video-width: 900px;
+
+      /* Warna tombol */
+      --button-color: #e50914;
+
+      /* Warna tombol kedua */
+      --button-download: #333;
+    }
+
+
+    /* =====================================================
+       CONTAINER UTAMA
+       ===================================================== */
+
+    .page {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 10px 30px;
+    }
+
+
+    /* =====================================================
+       BANNER
+       ===================================================== */
+
+    .banner-wrapper {
+      position: relative;
+
+      width: 100%;
+      min-height: 50px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      margin-top: var(--banner-top);
+      margin-bottom: var(--banner-video-gap);
+
+      text-align: center;
+
+      z-index: 9999;
+
+      overflow: visible;
+    }
+
+    .banner {
+      width: 100%;
+      text-align: center;
+
+      position: relative;
+      z-index: 9999;
+
+      overflow: visible;
+    }
+
+
+    /* =====================================================
+       VIDEO
+       ===================================================== */
+
+    .video-box {
+      position: relative;
+
+      width: 100%;
+      max-width: var(--max-video-width);
+
+      margin: 0 auto;
+
+      background: #000;
+
+      z-index: 1;
+    }
+
+    #player {
+      display: block;
+
+      width: 100%;
+      height: auto;
+
+      /*
+        Rasio responsive.
+        Video akan mengikuti ukuran HP/laptop.
+      */
+      aspect-ratio: 16 / 9;
+
+      object-fit: contain;
+
+      background: #000;
+
+      border-radius: 6px;
+    }
+
+
+    /* =====================================================
+       LOADING
+       ===================================================== */
+
+    .video-loader {
+      display: none;
+
+      position: absolute;
+
+      top: 50%;
+      left: 50%;
+
+      transform: translate(-50%, -50%);
+
+      color: #fff;
+
+      font-size: 14px;
+
+      background: rgba(0, 0, 0, 0.7);
+
+      padding: 10px 16px;
+
+      border-radius: 5px;
+
+      z-index: 10;
+    }
+
+
+    /* =====================================================
+       BUTTON AREA
+       ===================================================== */
+
+    .buttons {
+      width: 100%;
+      max-width: var(--max-video-width);
+
+      margin: 15px auto 0;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      gap: 10px;
+
+      flex-wrap: wrap;
+    }
+
+
+    /* =====================================================
+       BUTTON
+       ===================================================== */
+
+    .buttons button {
+      border: 0;
+
+      outline: none;
+
+      padding: 11px 20px;
+
+      border-radius: 5px;
+
+      color: #fff;
+
+      font-size: 14px;
+
+      font-weight: bold;
+
+      cursor: pointer;
+
+      transition: 0.2s ease;
+    }
+
+    .buttons button:hover {
+      opacity: 0.85;
+
+      transform: translateY(-1px);
+    }
+
+
+    /* Watch More */
+    #watchBtn {
+      background: var(--button-color);
+    }
+
+
+    /* Download */
+    #downloadBtn {
+      background: var(--button-download);
+    }
+
+
+    /* =====================================================
+       MOBILE
+       ===================================================== */
+
+    @media (max-width: 600px) {
+
+      .page {
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+
+      .banner-wrapper {
+        margin-top: var(--banner-top);
+        margin-bottom: 10px;
+      }
+
+      .video-box {
+        width: 100%;
+      }
+
+      #player {
+        width: 100%;
+        border-radius: 0;
+      }
+
+      .buttons {
+        padding: 0 5px;
+      }
+
+      .buttons button {
+        flex: 1;
+
+        min-width: 130px;
+
+        padding: 10px 12px;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+
+  <main class="page">
+
+
+    <!-- ===================================================
+         BANNER ATAS
+         =================================================== -->
+
+    <div class="banner-wrapper">
+
+      <div class="banner">
+
+        <script>
+          atOptions = {
+            key: '588e4334052d78dad210ddc8e0c88760',
+            format: 'js',
+            params: {}
+          };
+
+          document.write(
+            '<scr' +
+            'ipt type="text/javascript" src="' +
+            'https://degreetemptbummer.com/588e4334052d78dad210ddc8e0c88760/invoke.js">' +
+            '</scr' +
+            'ipt>'
+          );
+        </script>
+
+      </div>
+
+    </div>
+
+
+    <!-- ===================================================
+         VIDEO
+         =================================================== -->
+
+    <div class="video-box">
+
+      <div id="videoLoader" class="video-loader">
+        Memuat video...
+      </div>
+
+      <video
+        id="player"
+        controls
+        autoplay
+        playsinline
+        preload="metadata"
+        controlslist="nofullscreen nodownload noremoteplayback"
+        disablepictureinpicture
+        poster="https://cdn.aceimg.com/BW7ZmAt1k.jpg"
+      >
+
+        <source
+          id="videoSource"
+          src=""
+          type="video/mp4"
+        >
+
+        Browser Anda tidak mendukung pemutar video.
+
+      </video>
+
+    </div>
+
+
+    <!-- ===================================================
+         BUTTON
+         =================================================== -->
+
+    <div class="buttons">
+
+      <button id="watchBtn" type="button">
+        ▶ Watch More
+      </button>
+
+      <button id="downloadBtn" type="button">
+        ⬇ Download
+      </button>
+
+    </div>
+
+
+  </main>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+       ===================================================== -->
+
+  <script>
+
+    /* =====================================================
+       SMARTLINK
+       ===================================================== */
+
+    const smartlink =
+      'https://bookchose.com/ud620wgvv3?key=4adc86a8ea6777dca2e5a0765c46f2e9';
+
+
+    /* =====================================================
+       WATCH MORE
+       ===================================================== */
+
+    const watchBtn = document.getElementById('watchBtn');
+
+    if (watchBtn) {
+
+      watchBtn.addEventListener('click', function () {
+
+        window.open(
+          smartlink,
+          '_blank',
+          'noopener,noreferrer'
+        );
+
+      });
+
+    }
+
+
+    /* =====================================================
+       DOWNLOAD
+       ===================================================== */
+
+    const downloadBtn = document.getElementById('downloadBtn');
+
+    if (downloadBtn) {
+
+      downloadBtn.addEventListener('click', function () {
+
+        window.open(
+          smartlink,
+          '_blank',
+          'noopener,noreferrer'
+        );
+
+      });
+
+    }
+
+
+    /* =====================================================
+       VIDEO PARAMETER
+       =====================================================
+
+       Contoh:
+
+       halaman.html?v=k84OOz1w1
+
+       atau:
+
+       halaman.html?v=https://cdn.videy.co/xxxxx.mp4
+    */
+
+    const params = new URLSearchParams(
+      window.location.search
+    );
+
+    let video = params.get('v');
+
+
+    /* =====================================================
+       DEFAULT VIDEO
+       ===================================================== */
+
+    if (!video) {
+
+      video = 'k84OOz1w1';
+
+    }
+
+
+    /* =====================================================
+       VIDEO URL
+       ===================================================== */
+
+    if (!video.startsWith('http')) {
+
+      video =
+        'https://cdn.videy.co/' +
+        video;
+
+    }
+
+
+    /* =====================================================
+       TAMBAHKAN .MP4
+       ===================================================== */
+
+    if (!video.endsWith('.mp4')) {
+
+      video += '.mp4';
+
+    }
+
+
+    /* =====================================================
+       ELEMENT VIDEO
+       ===================================================== */
+
+    const player =
+      document.getElementById('player');
+
+    const source =
+      document.getElementById('videoSource');
+
+    const loader =
+      document.getElementById('videoLoader');
+
+
+    /* =====================================================
+       MASUKKAN VIDEO
+       ===================================================== */
+
+    if (source) {
+
+      source.src = video;
+
+    }
+
+
+    /* =====================================================
+       LOAD VIDEO
+       ===================================================== */
+
+    if (player) {
+
+      player.load();
+
+    }
+
+
+    /* =====================================================
+       LOADING
+       ===================================================== */
+
+    if (player && loader) {
+
+      player.addEventListener(
+        'loadstart',
+        function () {
+
+          loader.style.display = 'block';
+
+        }
+      );
+
+
+      player.addEventListener(
+        'canplay',
+        function () {
+
+          loader.style.display = 'none';
+
+        }
+      );
+
+
+      player.addEventListener(
+        'waiting',
+        function () {
+
+          loader.style.display = 'block';
+
+        }
+      );
+
+
+      player.addEventListener(
+        'playing',
+        function () {
+
+          loader.style.display = 'none';
+
+        }
+      );
+
+    }
+
+
+    /* =====================================================
+       DISABLE KLIK KANAN
+       ===================================================== */
+
+    if (player) {
+
+      player.addEventListener(
+        'contextmenu',
+        function (event) {
+
+          event.preventDefault();
+
+        }
+      );
+
+    }
+
+  </script>
+
+
+</body>
+</html>
+```
+
+### Pengaturan banner
+
+Kalau banner ingin **turun sedikit**, ubah:
+
+```css
+--banner-top: 10px;
+```
+
+menjadi:
+
+```css
+--banner-top: 30px;
+```
+
+Kalau mau turun lebih jauh:
+
+```css
+--banner-top: 60px;
+```
+
+Jarak antara banner dan video diatur dengan:
+
+```css
+--banner-video-gap: 15px;
+```
+
+Sedangkan ukuran video laptop diatur dengan:
+
+```css
+--max-video-width: 900px;
+```
+
+Contohnya kalau mau lebih besar:
+
+```css
+--max-video-width: 1000px;
+```
+
+Untuk HP, video otomatis mengikuti lebar layar sehingga tidak melebar keluar layar.
+
+**Catatan:** kode yang Anda berikan hanya menyediakan **satu unit banner/key**, jadi kode di atas memasang satu banner di atas video. Kalau nanti Anda punya **kode banner kedua yang berbeda**, bisa saya pasangkan di bawah video tanpa mengganggu banner pertama.
