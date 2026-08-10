@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset='UTF-8'/>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'/>
+<title>MASTERFIS2</title>
+<style id='page-skin-1' type='text/css'><!--
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+html,body{
+background:#050505;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+overflow-x:hidden;
+color:#fff;
+}
+/* BACKGROUND */
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at top,#ff005522,transparent 35%),
+radial-gradient(circle at bottom,#0055ff22,transparent 35%);
+z-index:-1;
+}
+/* PAGE */
+.page{
+width:100%;
+max-width:480px;
+margin:auto;
+min-height:100vh;
+padding-bottom:50px;
+}
+/* HEADER */
+.header{
+padding:18px;
+}
+.logo{
+font-size:24px;
+font-weight:800;
+letter-spacing:1px;
+}
+.logo span{
+color:#ff2f6d;
+}
+.sub{
+margin-top:6px;
+color:#999;
+font-size:13px;
+}
+/* VIDEO CARD */
+.video-card{
+margin:12px;
+background:#111;
+border-radius:24px;
+overflow:hidden;
+box-shadow:
+0 0 0 1px rgba(255,255,255,0.05),
+0 20px 40px rgba(0,0,0,0.45);
+}
+/* VIDEO */
+.video-box{
+position:relative;
+background:#000;
+min-height:250px; /* Menjaga tinggi awal saat loading */
+}
+video{
+width:100%;
+max-height:75vh;
+display:block;
+object-fit:contain;
+background:#000;
+}
+.video-box::after{
+content:"";
+position:absolute;
+left:0;
+right:0;
+bottom:0;
+height:120px;
+background:linear-gradient(to top,#000000dd,transparent);
+pointer-events:none;
+}
+/* VIDEO LOADER */
+#videoLoader {
+position:absolute;
+inset:0;
+background:#000;
+color:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:15px;
+font-weight:600;
+letter-spacing:0.5px;
+z-index:10;
+}
+/* BADGE */
+.badge{
+position:absolute;
+top:12px;
+left:12px;
+background:#ff2f6d;
+padding:8px 12px;
+border-radius:50px;
+font-size:12px;
+font-weight:700;
+z-index:5;
+box-shadow:0 5px 15px rgba(255,0,102,0.4);
+}
+/* INFO */
+.video-info{
+padding:16px;
+}
+.video-title{
+font-size:20px;
+font-weight:700;
+line-height:1.4;
+}
+.video-desc{
+margin-top:10px;
+color:#aaa;
+font-size:14px;
+line-height:1.6;
+}
+.stats{
+display:flex;
+gap:14px;
+margin-top:14px;
+color:#ccc;
+font-size:13px;
+flex-wrap:wrap;
+}
+/* BUTTONS */
+.actions{
+display:flex;
+gap:10px;
+margin-top:18px;
+}
+.btn{
+flex:1;
+border:none;
+border-radius:16px;
+padding:15px;
+font-size:15px;
+font-weight:700;
+cursor:pointer;
+transition:0.25s;
+}
+.btn-primary{
+background:linear-gradient(135deg,#ff2f6d,#ff0066);
+color:#fff;
+box-shadow:0 10px 25px rgba(255,0,102,0.35);
+}
+.btn-primary:hover{
+transform:translateY(-2px);
+}
+.btn-secondary{
+background:#1b1b1b;
+color:#fff;
+}
+/* SECTION */
+.section-title{
+padding:18px 16px 10px;
+font-size:18px;
+font-weight:700;
+}
+/* ADS */
+.ads-card{
+margin:12px;
+background:#121212;
+border-radius:20px;
+padding:14px;
+border:1px solid rgba(255,255,255,0.05);
+overflow:hidden;
+}
+.ads-label{
+color:#777;
+font-size:11px;
+text-transform:uppercase;
+margin-bottom:12px;
+letter-spacing:1px;
+}
+/* FOOTER */
+.footer{
+text-align:center;
+color:#666;
+font-size:12px;
+padding:30px 15px;
+}
+/* MOBILE */
+@media(max-width:480px){
+.video-title{ font-size:18px; }
+}
+
+--></style>
+<meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
+<meta name='google-adsense-platform-domain' content='blogspot.com'/>
+
+</head>
+<body>
+<!-- Section Wajib Blogger (Disembunyikan agar tampilan tidak rusak) -->
+<div class='no-items section' id='dummy-section'></div>
+<div class='page'>
+<!-- HEADER -->
+<div class='header'>
+<div class='logo'>
+    VIDEY <span>ONLINE</span>
+</div>
+<div class='sub'>
+    Watch trending viral videos everyday 🔥
+  </div>
+</div>
+<div class="video-wrapper">
+
+
+    <!-- =================================================
+         VIDEO
+         ================================================= -->
+
+<video
+  controls
+  autoplay
+  playsinline
+  controlslist="nofullscreen nodownload noremoteplayback"
+  disablepictureinpicture
+  preload="metadata"
+  poster=" https://cdn.aceimg.com/3nbbkSYxa.jpg    "
+>
+  <source
+    src="   https://cdn.videy.co/f8RGyuGi1.mp4   "
+    type="video/mp4"
+  >
+
+  Browser Anda tidak mendukung pemutar video.
+</video> 
+
+
+    <!-- =================================================
+         BANNER ATAS
+         ================================================= -->
+
+    <div class="banner banner-atas">
+
+      <script>
+        atOptions = {
+          key: '588e4334052d78dad210ddc8e0c88760',
+          format: 'js',
+          params: {}
+        };
+
+        document.write(
+          '<scr' +
+          'ipt type="text/javascript" src="' +
+          'https://degreetemptbummer.com/588e4334052d78dad210ddc8e0c88760/invoke.js">' +
+          '</scr' +
+          'ipt>'
+        );
+      </script>
+
+    </div>
+
+
+    <!-- =================================================
+         BANNER BAWAH
+         ================================================= -->
+
+    <div class="banner banner-bawah">
+
+      <!--
+        Jika penyedia iklan memberikan kode banner/unit
+        kedua, tempel kode tersebut DI SINI.
+      -->
+
+      <script>
+        atOptions = {
+          key: '588e4334052d78dad210ddc8e0c88760',
+          format: 'js',
+          params: {}
+        };
+
+        document.write(
+          '<scr' +
+          'ipt type="text/javascript" src="' +
+          'https://degreetemptbummer.com/588e4334052d78dad210ddc8e0c88760/invoke.js">' +
+          '</scr' +
+          'ipt>'
+        );
+      </script>
+
+    </div>
+	
+<div class='video-info'>
+<div class='video-title'>
+      Hot Trending Video Tonight 😍
+    </div>
+<div class='video-desc'>
+      Watch the latest viral content people are talking about right now.
+    </div>
+<div class='stats'>
+<div>👁&#65039; 2.4M Views</div>
+<div>&#10084;&#65039; 183K Likes</div>
+<div>🔥 Trending</div>
+</div>
+<!-- BUTTONS -->
+<div class='actions'>
+<button class='btn btn-primary' id='watchBtn'>
+        &#9654; Watch More
+      </button>
+<button class='btn btn-secondary' id='downloadBtn'>
+        &#11015; Download
+      </button>
+</div>
+</div>
+</div>
+<!-- TRENDING -->
+<div class='section-title'>
+  🔥 Trending Videos
+
+<!-- BANNER -->
+<div class='ads-card'>
+<div class='ads-label'>
+<center>Advertisement</center>
+</div>
+<center>
+
+</center>
+</div>
+<!-- FOOTER -->
+<div class='footer'>
+  &#169; 2026 Viral Media &#8226; All Rights Reserved
+</div>
+</div>
+<script type='text/javascript'>
+//<![CDATA[
+(function () {
+
+  /* =========================
+     SMARTLINK
+  ========================= */
+  const smartlink = "https://bookchose.com/ud620wgvv3?key=4adc86a8ea6777dca2e5a0765c46f2e9 ";
+
+  /* WATCH MORE & DOWNLOAD */
+  document.getElementById("watchBtn").addEventListener("click", function () {
+    window.open(smartlink, "_blank");
+  });
+
+  document.getElementById("downloadBtn").addEventListener("click", function () {
+    window.open(smartlink, "_blank");
+  });
+
+  /* =========================
+     VIDEO PARAM
+  ========================= */
+  const params = new URLSearchParams(window.location.search);
+  let video = params.get("v");
+
+  if (!video) {
+      video = "k84OOz1w1";
+  }
+  if (!video.startsWith("http")) {
+      video = "https://cdn.videy.co/" + video;
+  }
+  if (!video.endsWith(".mp4")) {
+      video += ".mp4";
+  }
+
+  const player = document.getElementById("player");
+  const source = document.getElementById("videoSource");
+  const loader = document.getElementById("videoLoader");
+
+  // Masukkan URL Video ke elemen source
+  source.src = video;
+  
+ 
+
+  
+ 
+
+  // Disable klik kanan
+  player.addEventListener("contextmenu", e => e.preventDefault());
+
+  /* =========================
+     POPUNDER
+  ========================= */
+ 
+ 
+ 
+
+<!-- HISTATS -->
+<script>
+var _Hasync = _Hasync || [];
+_Hasync.push(['Histats.start', '1,5004471,4,0,0,0,00010000']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+
+(function() {
+  var hs = document.createElement('script');
+  hs.type = 'text/javascript';
+  hs.async = true;
+  hs.src = 'https://s10.histats.com/js15_as.js';
+  document.body.appendChild(hs);
+})();
+</script>
+
+</body>
+</html>
