@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>I ain’t flexin’, it’s just me 🧃🖤 - PUTLOCKER</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#050505;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;overflow-x:hidden}
+
+/* HEADER PUTLOCKER - PERSIS SCREENSHOT */
+.topbar{
+  background: linear-gradient(to bottom, rgba(60,60,60,0.95), rgba(20,20,20,0.98));
+  backdrop-filter: blur(10px);
+  padding: 14px 3%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:sticky;
+  top:0;
+  z-index:9999;
+  border-bottom:1px solid rgba(255,255,255,0.1)
+}
+.left{display:flex;align-items:center;gap:45px}
+.logo-put{display:flex;align-items:center;gap:8px;text-decoration:none;cursor:pointer}
+.logo-put .put, .logo-put .locker{color:#fff;font-size:30px;font-weight:900;letter-spacing:1px}
+.logo-play{width:42px;height:42px;background:#8bc34a;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,0.4)}
+.play-white{width:0;height:0;border-left:15px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:3px}
+.menu-put{display:flex;gap:26px;align-items:center}
+.menu-put a{color:#ddd;text-decoration:none;font-size:15px;font-weight:500;transition:.2s}
+.menu-put a:hover{color:#8bc34a}
+.search-put{position:relative}
+.search-put input{
+  background: rgba(255,255,255,0.12);
+  border:1px solid rgba(255,255,255,0.2);
+  border-radius:25px;
+  padding:11px 20px 11px 44px;
+  color:#fff;
+  width:320px;
+  font-size:14px;
+  outline:none;
+}
+.search-put input::placeholder{color:#999}
+.search-put .icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:#999;font-size:16px}
+
+.page{width:100%;max-width:500px;margin:0 auto;min-height:100vh;padding-bottom:50px}
+.header-old{padding:18px;display:none}
+
+/* VIDEO BOX */
+.video-wrapper{margin:0}
+.video-box{position:relative;width:100%;background:#000;overflow:hidden}
+video{width:100%;max-height:75vh;display:block;object-fit:contain;background:#000}
+#centerPlay{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:70px;height:70px;border:0;border-radius:50%;
+  background:#ff2f6d;cursor:pointer;z-index:10;
+  box-shadow:0 8px 30px rgba(255,0,102,0.45);transition:.2s ease;
+}
+#centerPlay:hover{transform:translate(-50%,-50%) scale(1.08);background:#ff0066}
+#centerPlay::before{
+  content:"";position:absolute;top:50%;left:50%;transform:translate(-35%,-50%);
+  width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-left:18px solid #fff;
+}
+#centerPlay.hidden{opacity:0;pointer-events:none}
+.banner{position:absolute;left:50%;width:100%;text-align:center;z-index:5;transform:translateX(-50%);pointer-events:auto;overflow:visible}
+.banner-atas{top:70px}
+.banner-bawah{bottom:100px}
+:root{--banner-atas:70px;--banner-bawah:100px}
+
+.video-info{padding:18px;background:#111;border-radius:0 0 20px 20px}
+.video-title{font-size:19px;font-weight:700;line-height:1.4}
+.video-desc{margin-top:8px;color:#aaa;font-size:14px;line-height:1.5}
+.stats{display:flex;gap:14px;margin-top:14px;color:#ccc;font-size:13px;flex-wrap:wrap}
+.actions{display:flex;gap:10px;margin-top:18px}
+.btn{flex:1;border:none;border-radius:14px;padding:14px;font-size:14px;font-weight:700;cursor:pointer;transition:.25s;text-decoration:none;text-align:center;display:block}
+.btn-primary{background:linear-gradient(135deg,#ff2f6d,#ff0066);color:#fff;box-shadow:0 8px 20px rgba(255,0,102,0.35)}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-secondary{background:#1e1e1e;color:#fff}
+.section-title{padding:18px 16px 10px;font-size:17px;font-weight:700;text-align:center}
+.ads-card{margin:12px;background:#121212;border-radius:16px;padding:14px;border:1px solid rgba(255,255,255,0.05)}
+.ads-label{color:#777;font-size:11px;text-transform:uppercase;margin-bottom:10px;letter-spacing:1px;text-align:center}
+.footer{text-align:center;color:#555;font-size:11px;padding:30px 15px}
+
+@media(max-width:768px){
+  .menu-put{display:none}
+  .search-put input{width:190px}
+  .topbar{padding:10px 3%}
+  .logo-put .put,.logo-put .locker{font-size:24px}
+  .logo-play{width:34px;height:34px}
+  .play-white{border-left:12px solid #fff;border-top:7px solid transparent;border-bottom:7px solid transparent}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER PUTLOCKER PERSIS SCREENSHOT -->
+<div class="topbar">
+  <div class="left">
+    <a class="logo-put" href="/">
+      <span class="put">PUT</span>
+      <div class="logo-play"><div class="play-white"></div></div>
+      <span class="locker">LOCKER</span>
+    </a>
+    <div class="menu-put">
+      <a href="/">Home</a>
+      <a href="#">Movies</a>
+      <a href="#">TV Shows</a>
+      <a href="#">Top IMDB</a>
+      <a href="#">Android App</a>
+    </div>
+  </div>
+  <div class="search-put">
+    <span class="icon">⌕</span>
+    <input type="text" placeholder="Enter keywords..." />
+  </div>
+</div>
+
+<div class="page">
+<div class="video-wrapper">
+<div class="video-box">
+  <video
+    id="player"
+    controls
+    autoplay
+    playsinline
+    controlslist="nofullscreen nodownload noremoteplayback"
+    disablepictureinpicture
+    preload="metadata"
+    poster="https://cdn.aceimg.com/ofAHh4LNU.jpg"
+  >
+    <source id="videoSource" src="https://cdn.videy.co/6PB8Ngyb1.mp4" type="video/mp4"/>
+    Browser Anda tidak mendukung pemutar video.
+  </video>
+  <button id="centerPlay" type="button" aria-label="Play Video"></button>
+
+  <div class="banner banner-atas">
+    <script>
+      atOptions = {key:'588e4334052d78dad210ddc8e0c88760',format:'js',params:{}};
+      document.write('<scr'+'ipt type="text/javascript" src="https://degreetemptbummer.com/588e4334052d78dad210ddc8e0c88760/invoke.js"></scr'+'ipt>');
+    </script>
+  </div>
+  <div class="banner banner-bawah">
+    <script>
+      atOptions = {key:'588e4334052d78dad210ddc8e0c88760',format:'js',params:{}};
+      document.write('<scr'+'ipt type="text/javascript" src="https://degreetemptbummer.com/588e4334052d78dad210ddc8e0c88760/invoke.js"></scr'+'ipt>');
+    </script>
+  </div>
+</div>
+
+<div class="video-info">
+  <div class="video-title">Hot Trending Video Tonight 😍</div>
+  <div class="video-desc">Watch the latest viral content people are talking about right now.</div>
+  <div class="stats">
+    <div>👁️ 2.4M Views</div>
+    <div>❤️ 183K Likes</div>
+    <div>🔥 Trending</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-primary" href="https://bookchose.com/ud620wgvv3?key=4adc86a8ea6777dca2e5a0765c46f2e9" target="_blank" rel="noopener">▶ Watch More</a>
+    <a class="btn btn-secondary" href="https://bookchose.com/ud620wgvv3?key=4adc86a8ea6777dca2e5a0765c46f2e9" target="_blank" rel="noopener">⬇ Download</a>
+  </div>
+</div>
+</div>
+
+<div class="section-title">🔥 Trending Videos</div>
+<div class="ads-card">
+  <div class="ads-label">Advertisement</div>
+  <center><!-- ads here --></center>
+</div>
+<div class="footer">© 2026 Viral Media • All Rights Reserved</div>
+</div>
+
+<script>
+const player=document.getElementById("player");
+const centerPlay=document.getElementById("centerPlay");
+centerPlay.addEventListener("click",function(){
+  if(player.paused){player.play()}else{player.pause()}
+});
+player.addEventListener("play",function(){centerPlay.classList.add("hidden")});
+player.addEventListener("pause",function(){centerPlay.classList.remove("hidden")});
+player.addEventListener("ended",function(){centerPlay.classList.remove("hidden")});
+</script>
+
+<script type="text/javascript">var _Hasync=_Hasync||[];_Hasync.push(['Histats.start','1,5004471,4,511,95,18,00000000']);_Hasync.push(['Histats.fasi','1']);_Hasync.push(['Histats.track_hits','']);(function(){var hs=document.createElement('script');hs.type='text/javascript';hs.async=true;hs.src=('//s10.histats.com/js15_as.js');(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(hs)})();</script>
+
+</body>
+</html>
